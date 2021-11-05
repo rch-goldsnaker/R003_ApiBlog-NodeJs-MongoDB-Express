@@ -9,14 +9,12 @@ const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
 
-const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.i4fkw.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`
-
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 mongoose
-  .connect(uri, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -44,6 +42,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.listen("process.env.PORT || 5000", () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("Backend is running.");
 });
