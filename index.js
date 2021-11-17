@@ -9,6 +9,10 @@ const categoryRoute = require("./routes/categories");
 /*const multer = require("multer");*/
 const { cloudinary } = require('./utils/cloudinary');
 const path = require("path");
+const cors = require("cors");
+
+cons app = express();
+app.use(cors());
 
 dotenv.config();
 app.use(express.json());
