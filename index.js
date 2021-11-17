@@ -11,7 +11,6 @@ const { cloudinary } = require('./utils/cloudinary');
 const path = require("path");
 const cors = require("cors");
 
-cons app = express();
 app.use(cors());
 
 dotenv.config();
