@@ -14,7 +14,8 @@ const cors = require("cors");
 app.use(cors());
 
 dotenv.config();
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 /*app.use("/images", express.static(path.join(__dirname, "/images")));*/
 
 mongoose
